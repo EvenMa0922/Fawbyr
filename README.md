@@ -1,4 +1,4 @@
-# csc648-su18-Team01
+# Fawbyr
 
 #### Enviornment
 Start off by making a .env file:
