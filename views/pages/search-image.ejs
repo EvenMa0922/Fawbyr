@@ -1,0 +1,91 @@
+<main role="main" class="container py-3 mb-5">
+  
+  <!-- Search form -->
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6">
+      <h3>Welcome to our vertical prototype</h3>
+      <h5 class="mb-3">Search Images By Category and Keyword</h5>
+      <hr class="my-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h5 class="mb-1">To test vertical prototype search functionality:</h5>
+      <p class="mb-1">Select any category in the dropdown and hit submit to see all images for that category.</p>
+      <p class="mb-1">or</p>
+      <p class="mb-1">Select "Art" as a category, enter "Abstract" as the query, then press submit to see a keyword search on title and description within the category.</p>
+      <hr class="my-4">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6">
+
+      <!-- Search form -->
+      <form action="/search/cat-search" method="POST">
+        <div class="input-group">
+          <select class="custom-select" name="imageCategory">
+            <% categories.forEach((category) => { %>
+              <option value="<%= category.id %>"
+                <% if (category.id == targetCategory.id) { %>
+                  selected
+                <% } %>>
+                <%= `${category.id}. ${category.name}` %>
+              </option>
+            <% }) %>
+          </select>
+          <input type="text"
+              class="form-control search-input"
+              name="searchString"
+              placeholder="Enter search term"
+              value="<%= searchString %>" />
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>  
+        </div>
+      </form>
+    </div>
+  </div>
+    
+  <br/>
+
+  <!-- Results label -->
+  <% if (searchString || targetCategory) {
+    let titleString = `${images.length} result${(images.length == 1) ? "" : "s"} `
+    titleString += (searchString && `for "${searchString}"`)
+    titleString += (targetCategory && `in the "${targetCategory.name}" category`)
+  %>
+
+    <div class="row">
+      <div class="col-12">
+        <%= titleString %>
+      </div>
+    </div>
+  <% } %>
+  
+  <!-- Results section -->
+  <div class="row">
+    <% images.forEach(image => { %>
+    <div class="col-12">
+      <div class="d-flex align-items-center justify-content-between search-result w-100">
+        <div class="search-result-image-container">
+          <img class="img-thumbnail border img-rounded my-4" src=<%=image.thumbnail%> />
+        </div>
+        <div class="search-result-copy-container p-2 px-3">
+          <h5><%= image.name %></h5>
+          <p><%= image.description %></p>
+        </div>
+        <div class="search-result-action-container">
+          <form action="/search/<%=image.id%>" method="GET">
+            <button type="submit" class="btn btn-primary">
+              Order
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+</main>
+  

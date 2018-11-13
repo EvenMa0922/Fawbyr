@@ -1,0 +1,44 @@
+<main role="main" class="container py-3 mb-5">
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-10 col-lg-6">
+          <h3 class="mb-3">Upload an Image</h3>
+          <form action="/image/upload" method="POST" enctype="multipart/form-data">
+            <div>
+              <div class="mb-2">
+                <div class="form-group">
+                  <label for="image-file-input">Image file</label>
+                  <input type="file" name="image" class="form-control-file" id="image-file-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="image-name-input">Image name</label>
+                <input type="text" name="imageName" class="form-control" id="image-name-input">
+                <small id="image-name-input-help" class="form-text text-muted">Enter a name for this image.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="image-description-input">Image description</label>
+                <input type="text" name="imageDescription" class="form-control" id="image-description-input">
+                <small id="image-description-input-help" class="form-text text-muted">Breifly describe this image.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="image-category-input">Image category</label>
+                <select name="imageCategory" class="custom-select">
+                  <% category.forEach((category) => { %>
+                    <option value="<%= category.id %>"><%= category.id %>. <%= category.name %></option>
+                  <% }) %>
+                </select>
+                <small id="image-category-input-help" class="form-text text-muted">Pick a category for this image.</small>
+              </div>
+              <button class="btn btn-primary btn-lg my-4" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  

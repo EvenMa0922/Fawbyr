@@ -1,0 +1,59 @@
+.disclaimer-banner {
+  background-color: black;
+  color: white;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.team-list {
+  display: inline-block;
+}
+
+.avatar-image {
+  width: 200px;
+  box-shadow: 0 5px 5px 0 #adb5bd;
+}
+
+.jumbotron {
+  background-color: grey;
+  color: white !important;
+  text-shadow: 1px 1px #555;
+}
+/* Temp hack to limit the jumbotron's input width */
+.jumbotron-search-form .form-group {
+  max-width: 300px;
+}
+
+/* Temp dump for search styles */
+/* TODO: move to dedicated file */
+.search-input {
+  flex: 3 !important;
+}
+.search-result-image-container {
+  max-width: 200px;
+  flex: 1;
+}
+.search-result-copy-container {
+  flex: 2;
+}
+.search-result-action-container {
+  flex: 0;
+}
+
+/* Temp dump for index styles */
+main {
+  min-height: 75vh;
+}
+.index-footer {
+  background-color: grey;
+  text-shadow: 1px 1px #555;
+}
+
+.index-footer a {
+  color: white !important;
+}

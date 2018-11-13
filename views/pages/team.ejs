@@ -1,0 +1,21 @@
+<main role="main" class="container mb-5 py-3">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1><%= title %></h1>
+      <p>Welcome to the <%= title %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h5>Our team</h5>
+      <ul class="list-group team-list" role="tablist">
+        <!-- Add a link with a url and name for each team member -->
+        <% teamMembers.forEach((tm) => { %>
+          <li class="list-group-item">
+            <a href="/team/<%= tm.firstName.toLowerCase() %>"><%= tm.firstName %> <%= tm.lastName %></a>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</main>

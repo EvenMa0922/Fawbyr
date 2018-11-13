@@ -1,0 +1,52 @@
+<main role="main" class="mb-5">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="jumbotron jumbotron-fluid w-100">
+        <div class="container">
+          <h1 class="display-4"><%= title %></h1>
+          <p class="lead"><%= description %></p>
+          <hr class="my-4">
+          <p><%= tagline %></p>
+          <p class="lead">
+            <div class="row">
+              <div class="col-12 col-md-8 col-lg-6">
+              <!-- Search form -->
+              <form action="/search/cat-search" method="POST">
+                <div class="input-group">
+                  <select class="custom-select" name="imageCategory">
+                    <% categories.forEach(category => { %>
+                      <option value="<%= category.id %>">
+                        <%= `${category.id}. ${category.name}` %>
+                      </option>
+                    <% }) %>
+                  </select>
+                  <input type="text"
+                      class="form-control search-input"
+                      name="searchString"
+                      placeholder="Enter search term" />
+                  <div class="input-group-append">
+                    <button
+                        class="btn btn-primary"
+                        type="submit">
+                      Submit
+                    </button>
+                  </div>  
+                </div>
+              </form>
+              <!-- End test search form -->
+              </div>
+            </div>
+          </p>
+          <hr class="my-4">
+          <h5 class="mb-1">To test vertical prototype search functionality:</h5>
+          <p class="mb-1">Select any category in the dropdown and hit submit to see all images for that category.</p>
+          <p class="mb-1">or</p>
+          <p class="mb-1">Select "Art" as a category, enter "Abstract" as the query, then press submit to see a keyword search on title and description within the category.</p>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</main>
