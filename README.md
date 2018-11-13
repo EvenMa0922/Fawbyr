@@ -1,4 +1,4 @@
-# Fawbyr
+# Fawbyr https://fawbyr.herokuapp.com (demo)
 
 #### Enviornment
 Start off by making a .env file:
